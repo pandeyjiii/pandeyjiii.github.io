@@ -48,10 +48,21 @@ h6 {
   letter-spacing: 0.1rem;
 }
 
+header.wishhead{
+  padding-top: calc(25rem - 1px);
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  background-image: url("../img/sendwish.jpg");
+  background-position: center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 header.masthead {
-  padding-top: 10rem;
-  padding-bottom: calc(10rem - 56px);
+  padding-top: 1rem;
+  padding-bottom: calc(25rem - 1px);
   background-image: url("../img/canvas.jpg");
   background-position: center center;
   -webkit-background-size: cover;
@@ -67,6 +78,20 @@ header.masthead hr {
 
 header.masthead h1 {
   font-size: 2rem;
+  text-shadow: 4px 3px #635758;
+}
+header.masthead h2 {
+  color: rgba(255,255,255,.9);
+  text-shadow: 4px 3px #635758;
+}
+
+header.wishhead h1 {
+  font-size: 2rem;
+  text-shadow: 4px 3px #635758;
+}
+header.wishhead h2 {
+  color: rgba(255,255,255,.9);
+  text-shadow: 4px 3px #635758;
 }
 
 header.masthead p {
@@ -83,11 +108,28 @@ header.masthead p {
   header.masthead {
     height: 100vh;
     min-height: 650px;
-    padding-top: 0;
-    padding-bottom: 0;
+    padding-top: calc(10rem + 455px);
+    padding-bottom: 10rem;
   }
   header.masthead h1 {
-    font-size: 3rem;
+    font-size: 4rem;
+  }
+  header.masthead h2 {
+    font-size: 2.5rem;
+  }
+    
+  header.wishhead {
+    height: 100vh;
+    min-height: 650px;
+    padding-top: calc(50rem);
+    padding-bottom: 7rem;
+    padding-right: 2rem;
+  }
+  header.wishhead h1 {
+    font-size: 4rem;
+  }
+  header.wishhead h2 {
+    font-size: 2.5rem;
   }
 }
 

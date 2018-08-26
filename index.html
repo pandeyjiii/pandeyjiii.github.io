@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Ayushi Pandey - A Very Happy Birthday!</title>
+    <title>Happy Birthday Ayushi</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -18,111 +18,41 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/one-page-wonder.min.css" rel="stylesheet">
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+    <script src="/vendor/angular/angular.min.js"></script>
+    <script src="vendor/angular/angular-ui-router.min.js"></script>
+    <script src="vendor/angular/ocLazyLoad.min.js"></script>
+    <script src="/modules/controller/app.js"></script>
+    <script src="/modules/controller/app-controller.js"></script>
+    <script src="vendor/angular/firebase.js"></script>
+    <script src="vendor/angular/angularfire.min.js"></script>
 
   </head>
 
-  <body>
-
+  <body ng-app="hbd">
+  <div id="commonError" class=" alert alert-danger alert-dismissable text-center"
+       style="display: none; position: fixed; top:24px; left: 10%; width:80%; z-index: 3000; font-size: 14px;">
+    <a class="close" ng-click="app.closeError()" aria-label="close">&times;</a>
+    <strong>Error!</strong> {{errorMesssage}}
+  </div>
+  <div id="commonSucess" class=" alert alert-success alert-dismissable text-center"
+       style="display: none; position: fixed; top:24px; left: 10%; width:80%; z-index: 3000; font-size: 14px;">
+    <a class="close" ng-click="app.closeError()" aria-label="close">&times;</a>
+    <strong>Success!</strong> {{successMesssage}}
+  </div>
     <!-- Navigation -->
-<!--
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign Up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Log In</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
--->
 
-    <header class="masthead text-bottom text-white">
-      <div class="masthead-content">
-        <div class="container">
-          <h1 class="masthead-heading mb-0">May the joy that you have spread in the past come back to you on this day.</h1>
-          <h2 class="masthead-subheading mb-0">Wish you a very Happy-Birthday!</h2>
-          <a href="#further" class="btn btn-primary btn-xl rounded-pill mt-5">Take a Peak!</a>
-        </div>
-      </div>
-<!--
-      <div class="bg-circle-1 bg-circle"></div>
-      <div class="bg-circle-2 bg-circle"></div>
-      <div class="bg-circle-3 bg-circle"></div>
-      <div class="bg-circle-4 bg-circle"></div>
--->
-    </header>
+    <div ui-view="main">
 
-    <section id="further">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 order-lg-2">
-            <div class="p-5">
-              <img class="img-fluid rounded-circle" src="img/header_images/1.jpg" alt="">
-            </div>
-          </div>
-          <div class="col-lg-6 order-lg-1">
-            <div class="p-5">
-              <h2 class="display-4">For those about to rock...</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="p-5">
-              <img class="img-fluid rounded-circle" src="img/header_images/9.jpg" alt="">
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="p-5">
-              <h2 class="display-4">We salute you!</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-6 order-lg-2">
-            <div class="p-5">
-              <img class="img-fluid rounded-circle" src="img/header_images/3.jpg" alt="">
-            </div>
-          </div>
-          <div class="col-lg-6 order-lg-1">
-            <div class="p-5">
-              <h2 class="display-4">Let there be rock!</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
 
     <!-- Footer -->
-    <footer class="py-5 bg-black">
-      <div class="container">
-        <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+    <!--<footer class="py-5 bg-black">-->
+      <!--<div class="container">-->
+        <!--<p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>-->
+      <!--</div>-->
+      <!--&lt;!&ndash; /.container &ndash;&gt;-->
+    <!--</footer>-->
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
