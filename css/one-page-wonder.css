@@ -48,6 +48,18 @@ h6 {
   letter-spacing: 0.1rem;
 }
 
+header.counthead{
+  padding-top: calc(33rem - 1px);
+  padding-bottom: 1rem;
+  padding-right: 1rem;
+  background-image: url("../img/gif/1.jpg");
+  background-position: center left;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 header.wishhead{
   padding-top: calc(25rem - 1px);
   padding-bottom: 1rem;
@@ -133,6 +145,14 @@ header.masthead p {
   }
 }
 
+@media (min-width: 992px) {
+  header.counthead {
+    height: 100vh;
+    min-height: 650px;
+    padding-top: calc(10rem + 455px);
+    padding-bottom: 10rem;
+  }
+
 @media (min-width: 1200px) {
   header.masthead h1 {
     font-size: 4rem;
@@ -171,4 +191,33 @@ header.masthead p {
 
 .btn-secondary:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
+}
+
+
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+}
+
+#clockdiv > div{
+	padding: 10px;
+	border-radius: 3px;
+	background: #00BF96;
+	display: inline-block;
+}
+
+#clockdiv div > span{
+	padding: 15px;
+	border-radius: 3px;
+	background: #00816A;
+	display: inline-block;
+}
+
+.smalltext{
+	padding-top: 5px;
+	font-size: 16px;
 }
