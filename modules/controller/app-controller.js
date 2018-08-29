@@ -127,4 +127,86 @@ angular.module("hbd").controller('appCtrl',function ($rootScope, $scope, $fireba
             $('#commonError').fadeOut(800)
         }, time);
     }
+
+
+    function getTimeRemaining(endtime) {
+      var t = Date.parse(endtime) - Date.parse(new Date());
+      var seconds = Math.floor((t / 1000) % 60);
+      var minutes = Math.floor((t / 1000 / 60) % 60);
+      var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      var days = Math.floor(t / (1000 * 60 * 60 * 24));
+      return {
+        'total': t,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+      };
+    }
+
+    function initializeClock(id, endtime) {
+        $timeout(function () {
+              var clock = document.getElementById(id);
+              var daysSpan = clock.querySelector('.days');
+              var hoursSpan = clock.querySelector('.hours');
+              var minutesSpan = clock.querySelector('.minutes');
+              var secondsSpan = clock.querySelector('.seconds');
+
+              function updateClock() {
+                var t = getTimeRemaining(endtime);
+
+                daysSpan.innerHTML = t.days;
+                hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+                if (t.total <= 0) {
+                  clearInterval(timeinterval);
+                }
+              }
+
+              updateClock();
+              var timeinterval = setInterval(updateClock, 1000);
+
+
+              header = $('.header.counthead');
+
+              setInterval(nextBackground, 500);
+
+              header.css('background-image', backgrounds[0]); 
+                    
+        }, 1000);
+      
+    }
+
+    var deadline = new Date(2018, 8, 2, 0, 0, 0, 0);
+    initializeClock('clockdiv', deadline);
+
+    var header;   
+
+    var backgrounds = new Array(
+        'url("img/countdown_low.gif")'
+//      , 'url("img/gif/2.jpg")'
+//      , 'url("img/gif/3.jpg")'
+//      , 'url("img/gif/4.jpg")'
+//      , 'url("img/gif/5.jpg")'
+//      , 'url("img/gif/6.jpg")'
+//      , 'url("img/gif/7.jpg")'
+//      , 'url("img/gif/8.jpg")'
+//      , 'url("img/gif/7.jpg")'
+//      , 'url("img/gif/6.jpg")'
+//      , 'url("img/gif/5.jpg")'
+//      , 'url("img/gif/4.jpg")'
+//      , 'url("img/gif/3.jpg")'
+//      , 'url("img/gif/2.jpg")'
+    );
+        
+    var current = 0;
+
+    function nextBackground() {
+        current++;
+        current = current % backgrounds.length;
+        header.css('background-image', backgrounds[current]);
+    }
+    
 });

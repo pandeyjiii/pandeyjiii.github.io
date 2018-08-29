@@ -9,7 +9,7 @@ hbd.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
 
     $locationProvider.hashPrefix(''); //to remove ! mark after #
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/countdown');
 
     $stateProvider
         .state('root',{
@@ -17,7 +17,7 @@ hbd.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
             url:"",
             views: {
                 'main': {
-                    templateUrl: "../modules/views/layout.html",
+                    templateUrl: "modules/views/layout.html",
                     controller:'appCtrl',
                     controllerAs:'app'
                 }
@@ -32,7 +32,7 @@ hbd.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
             url:"/countdown",
             views: {
                 'content': {
-                    templateUrl: "../modules/views/countdown.html"
+                    templateUrl: "modules/views/countdown.html"
                 }
             }
         })

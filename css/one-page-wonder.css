@@ -28,6 +28,11 @@ h6 {
   border-radius: 5rem;
 }
 
+.form-label{
+  font-family: 'Catamaran';
+  font-weight: 800 !important;
+}
+
 .navbar-custom {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -90,11 +95,11 @@ header.masthead hr {
 
 header.masthead h1 {
   font-size: 2rem;
-  text-shadow: 4px 3px #635758;
+  text-shadow: 2.5px 1px #635758;
 }
 header.masthead h2 {
   color: rgba(255,255,255,.9);
-  text-shadow: 4px 3px #635758;
+  text-shadow: 2.5px 2px #635758;
 }
 
 header.wishhead h1 {
@@ -197,33 +202,4 @@ header.masthead p {
 
 .btn-secondary:focus {
   box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
-}
-
-
-#clockdiv{
-	font-family: sans-serif;
-	color: #fff;
-	display: inline-block;
-	font-weight: 100;
-	text-align: center;
-	font-size: 30px;
-}
-
-#clockdiv > div{
-	padding: 10px;
-	border-radius: 3px;
-	background: #00BF96;
-	display: inline-block;
-}
-
-#clockdiv div > span{
-	padding: 15px;
-	border-radius: 3px;
-	background: #00816A;
-	display: inline-block;
-}
-
-.smalltext{
-	padding-top: 5px;
-	font-size: 16px;
 }
