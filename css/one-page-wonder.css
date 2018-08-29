@@ -53,7 +53,7 @@ header.counthead{
   padding-bottom: 1rem;
   padding-right: 1rem;
   background-image: url("../img/gif/1.jpg");
-  background-position: center left;
+  background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -117,6 +117,12 @@ header.masthead p {
 }
 
 @media (min-width: 992px) {
+
+  header.counthead {
+  background-position: center left;
+
+    }
+    
   header.masthead {
     height: 100vh;
     min-height: 650px;
