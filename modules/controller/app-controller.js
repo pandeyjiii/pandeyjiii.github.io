@@ -3,11 +3,17 @@ angular.module("hbd").controller('appCtrl',function ($rootScope, $scope, $fireba
 
     var self = this;
 
+    $scope.countdown = {
+        "after": false
+    }
+
     self.wish = {
         "name":"",
         "msg":"",
         "pic":""
     };
+
+    self.deadline = new Date(2018, 8, 2, 0, 0, 0, 0);
 
     // Initialize Firebase
     var config = {
@@ -130,59 +136,70 @@ angular.module("hbd").controller('appCtrl',function ($rootScope, $scope, $fireba
 
 
     function getTimeRemaining(endtime) {
-      var t = Date.parse(endtime) - Date.parse(new Date());
-      var seconds = Math.floor((t / 1000) % 60);
-      var minutes = Math.floor((t / 1000 / 60) % 60);
-      var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-      var days = Math.floor(t / (1000 * 60 * 60 * 24));
-      return {
-        'total': t,
-        'days': days,
-        'hours': hours,
-        'minutes': minutes,
-        'seconds': seconds
-      };
+        var t = Date.parse(endtime) - Date.parse(new Date());
+        if(t <= 0)
+        {
+            return {
+                'total': t,
+                'days': 0,
+                'hours': 0,
+                'minutes': 0,
+                'seconds': 0
+            }
+
+        }
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
     }
 
-    function initializeClock(id, endtime) {
+    $scope.initializeClock = function(id) {
+
+        var endtime = self.deadline;
         $timeout(function () {
-              var clock = document.getElementById(id);
-              var daysSpan = clock.querySelector('.days');
-              var hoursSpan = clock.querySelector('.hours');
-              var minutesSpan = clock.querySelector('.minutes');
-              var secondsSpan = clock.querySelector('.seconds');
+            var clock = document.getElementById(id);
+            var daysSpan = clock.querySelector('.days');
+            var hoursSpan = clock.querySelector('.hours');
+            var minutesSpan = clock.querySelector('.minutes');
+            var secondsSpan = clock.querySelector('.seconds');
 
-              function updateClock() {
+            function updateClock() {
                 var t = getTimeRemaining(endtime);
-
                 daysSpan.innerHTML = t.days;
                 hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
                 minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
                 secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
                 if (t.total <= 0) {
-                  clearInterval(timeinterval);
+                    $scope.countdown.after = true;
+                    $scope.$apply();
+                    clearInterval(timeinterval);
                 }
-              }
+            }
 
-              updateClock();
-              var timeinterval = setInterval(updateClock, 1000);
+            updateClock();
+            var timeinterval = setInterval(updateClock, 1000);
 
 
-              header = $('.header.counthead');
+            header = $('.header.counthead');
 
-              setInterval(nextBackground, 500);
+            setInterval(nextBackground, 500);
 
-              header.css('background-image', backgrounds[0]); 
-                    
+            header.css('background-image', backgrounds[0]);
+
         }, 1000);
-      
+
     }
 
-    var deadline = new Date(2018, 8, 2, 0, 0, 0, 0);
-    initializeClock('clockdiv', deadline);
-
-    var header;   
+    var header;
 
     var backgrounds = new Array(
         'url("img/countdown_low.gif")'
@@ -200,7 +217,7 @@ angular.module("hbd").controller('appCtrl',function ($rootScope, $scope, $fireba
 //      , 'url("img/gif/3.jpg")'
 //      , 'url("img/gif/2.jpg")'
     );
-        
+
     var current = 0;
 
     function nextBackground() {
@@ -208,5 +225,5 @@ angular.module("hbd").controller('appCtrl',function ($rootScope, $scope, $fireba
         current = current % backgrounds.length;
         header.css('background-image', backgrounds[current]);
     }
-    
+
 });

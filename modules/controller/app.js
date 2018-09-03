@@ -32,7 +32,7 @@ hbd.config(function($urlRouterProvider, $stateProvider, $locationProvider) {
             url:"/countdown",
             views: {
                 'content': {
-                    templateUrl: "modules/views/countdown.html"
+                    templateUrl: "../modules/views/countdown.html"
                 }
             }
         })
